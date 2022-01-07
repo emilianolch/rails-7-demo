@@ -1,3 +1,6 @@
 <div id="<%= dom_id comment %>">
-  <blockquote><p><%= comment.content %></p></blockquote>
+  <blockquote>
+    <p><%= comment.content %></p>
+    <cite><%= time_tag comment.created_at, 'data-local': 'time-ago' %>
+  </blockquote>
 </div>
