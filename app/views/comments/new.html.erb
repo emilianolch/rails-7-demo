@@ -2,19 +2,7 @@
 
 <%= turbo_frame_tag 'new_comment' do %>
   <div data-controller="comments">
-    <%= form_with(model: [@post, @comment], data: { action: 'turbo:submit-end->comments#reset' }) do |form| %>
-      <% if @comment.errors.any? %>
-        <div style="color: red">
-          <p><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</p>
-
-          <ul>
-            <% @comment.errors.each do |error| %>
-              <li><%= error.full_message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-
+    <%= form_with(model: [@post, Comment.new], data: { action: 'turbo:submit-end->comments#reset' }) do |form| %>
       <div>
         <%= form.text_area :content, data: { action: 'comments#inputChanged', 'comments-target': 'input' }, placeholder: 'Enter a comment' %>
       </div>
@@ -26,4 +14,4 @@
   </div>
 <% end %>
 
-<%= link_to "Back to post", post_path(@comment.post) %>
+<%= link_to "Back to post", post_path(@post) %>
