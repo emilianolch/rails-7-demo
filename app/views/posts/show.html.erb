@@ -2,7 +2,10 @@
 
 <p style="color: green"><%= notice %></p>
 
-<%= render @post %>
+<h2><%= @post.title %></h2>
+<p>Posted <%= time_tag @post.created_at, "data-time": "time-ago" %></p>
+<div><%= @post.content %></div>
+
 <%= render 'posts/comments', post: @post %>
 
 <div>

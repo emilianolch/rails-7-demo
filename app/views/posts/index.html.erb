@@ -2,14 +2,19 @@
 
 <h1>Posts</h1>
 
-<div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
-  <% end %>
-</div>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Posted</th>
+      <th>Comments</th>
+    </tr>
+  </thead>
+
+  <tbody id="posts">
+    <%= render @posts %>
+  </tbody>
+</table>
 
 <%= link_to "New post", new_post_path %>
 

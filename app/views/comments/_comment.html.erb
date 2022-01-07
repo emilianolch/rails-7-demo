@@ -1,6 +1,4 @@
-<div id="<%= dom_id comment %>">
-  <blockquote>
-    <p><%= comment.content %></p>
-    <cite><%= time_tag comment.created_at, 'data-local': 'time-ago' %>
-  </blockquote>
-</div>
+<p>
+  <%= comment.content %><br/>
+  <small><%= time_tag comment.created_at, 'data-local': 'time-ago' %></small>
+</p>
