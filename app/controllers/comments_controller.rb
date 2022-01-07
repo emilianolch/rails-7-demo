@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_post
+  
   def new
     @comment = @post.comments.new
   end
@@ -10,6 +11,9 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.html { redirect_to post_url(@post), notice: "Comment was successfully created." }
+        format.turbo_stream {
+          render turbo_stream: turbo_stream.append('comments', @comment)
+        }
       else
         format.html { render :new, status: :unprocessable_entity }
       end

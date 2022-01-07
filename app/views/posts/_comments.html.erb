@@ -3,4 +3,4 @@
   <%= render post.comments %>  
 </div>
 
-<%= link_to 'New comment', new_post_comment_path(post) %>
+<%= turbo_frame_tag 'new_comment', src: new_post_comment_path(post) %>
